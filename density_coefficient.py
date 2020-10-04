@@ -29,6 +29,7 @@ COLOUR_BASED_PATTERNS = {
     'indigo': 'indigo',
     'khaki': 'khaki',
     'lilac': 'lilac',
+    'madder': 'madder',
     'magenta': 'magenta',
     'maroon': 'maroon',
     'mauve': 'mauve',
@@ -38,13 +39,14 @@ COLOUR_BASED_PATTERNS = {
     'purple': 'purpl(e|y|ish)',
     'red': 'red',
     'rosy': 'rosy',
+    'ruddy': 'ruddy',
     'scarlet': 'scarlet',
     'sienna': 'sienna',
     'teal': 'teal',
     'turquoise': 'turquoise',
     'ultramarine': 'ultramarine',
     'umber': 'umber',
-    'vermillion': 'vermillion',
+    'vermilion': 'vermill?ion',
     'violet': 'violet',
     'viridian': 'viridian',
     'white': 'white',
@@ -88,7 +90,7 @@ def main():
     patterns = generate_patterns()
     for key, pattern in patterns.items():
         results[key] = len(re.findall(pattern, file_content))
-        
+
     print('Counts of colour names:')
     pp = pprint.PrettyPrinter()
     pp.pprint({k: v for k, v in results.items() if v > 0})
