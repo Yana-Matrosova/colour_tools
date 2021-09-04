@@ -61,6 +61,10 @@ def parse_cli_args():
         '-t', '--text_path', type=str, required=True,
         help='path to source text'
     )
+    parser.add_argument(
+        '-e', '--encoding', type=str, default='utf-8',
+        help='encoding of source text file (by default, utf-8 is used)'
+    )
     cli_args = parser.parse_args()
     return cli_args
 
@@ -82,7 +86,7 @@ def generate_patterns():
 
 def main():
     cli_args = parse_cli_args()
-    with open(cli_args.text_path, "r") as source_file:
+    with open(cli_args.text_path, "r", encoding=cli_args.encoding) as source_file:
         file_content = source_file.read()
     file_content = file_content.lower()
 
